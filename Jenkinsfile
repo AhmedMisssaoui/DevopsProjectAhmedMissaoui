@@ -29,7 +29,7 @@ pipeline {
             steps {
                 withMaven(maven: 'mvn') {
                    withSonarQubeEnv(installationName: 'sonarqube') { 
-          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
         }
                 }
             }
