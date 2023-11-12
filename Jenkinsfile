@@ -24,5 +24,15 @@ pipeline {
                     sh "mvn test"
             }
         }
+
+           stage('SonarQube Stage') {
+            steps {
+                withMaven(maven: 'mvn') {
+                    withSonarQubeEnv('sonarqube') {
+                        sh 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }
     }
 }
