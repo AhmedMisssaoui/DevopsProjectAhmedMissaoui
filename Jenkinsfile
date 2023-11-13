@@ -44,5 +44,13 @@ pipeline {
                 sh 'mvn deploy -DskipTests'
             }
         }
+          
+        stage('Docker Build Stage') {
+            steps {
+                script { 
+                    sh 'docker build -t ahmed_img .'
+                }
+            }
+        }
     }
 }
