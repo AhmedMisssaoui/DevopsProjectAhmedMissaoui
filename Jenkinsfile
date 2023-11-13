@@ -48,7 +48,7 @@ pipeline {
         stage('Docker Build Stage') {
             steps {
                 script { 
-                    sh 'docker build -t ahmed_img .'
+                    sh 'docker build -t ahmedmissaoui/ahmed_img .'
                 }
             }
         }
