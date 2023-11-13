@@ -48,7 +48,7 @@ pipeline {
         stage('Docker Build Stage') {
             steps {
                 script { 
-                    sh 'docker build -t ahmedmissaoui/ahmed_img .'
+                    sh 'docker build -t ahmed026/ahmed_img .'
                 }
             }
         }
@@ -59,7 +59,7 @@ pipeline {
                          sh "docker login -u ahmed026 -p ${dockerpwd}"
 }
 
-                    sh 'docker push ahmedmissaoui/ahmed_img '
+                    sh 'docker push ahmed026/ahmed_img '
                 }
             }
         }
