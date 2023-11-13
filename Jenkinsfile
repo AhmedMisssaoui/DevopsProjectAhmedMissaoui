@@ -52,5 +52,15 @@ pipeline {
                 }
             }
         }
+              stage('Push Image To Hub') {
+            steps {
+                script { 
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                     sh 'docker login -u ahmed026 -p ${dockerhubpwd}'
+}
+                    sh 'docker push ahmedmissaoui/ahmed_img '
+                }
+            }
+        }
     }
 }
