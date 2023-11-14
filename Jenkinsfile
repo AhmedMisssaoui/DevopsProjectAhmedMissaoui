@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+      environment {
+        dockerCompose = 'docker-compose.yml'
+    }
+
       stages {
          stage("Git") {
       
@@ -60,6 +64,13 @@ pipeline {
 }
 
                     sh 'docker push ahmed026/ahmed_img '
+                }
+            }
+        }
+           stage('Docker Compose Stage') {
+            steps {
+                script {
+                    sh "docker-compose -f ${dockerCompose} up -d"
                 }
             }
         }
