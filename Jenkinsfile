@@ -35,7 +35,7 @@ pipeline {
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
             }
-        }
+        }*/
 
           stage("Building Stage") {
             steps {
@@ -43,7 +43,7 @@ pipeline {
             }
         }
           
-           stage("Nexus Stage") {
+         /*stage("Nexus Stage") {
             steps {
                 sh 'mvn deploy -DskipTests'
             }
