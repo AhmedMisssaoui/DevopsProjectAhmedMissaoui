@@ -49,14 +49,14 @@ pipeline {
             }
         }
           
-        stage('Docker Build Stage') {
+        /*stage('Docker Build Stage') {
             steps {
                 script { 
                     sh 'docker build -t ahmed026/ahmed_img .'
                 }
             }
         }
-              /*stage('Push Image To Hub') {
+              stage('Push Image To Hub') {
             steps {
                 script { 
                     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerpwd')]) {
