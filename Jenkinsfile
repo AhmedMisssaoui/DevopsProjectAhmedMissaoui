@@ -47,7 +47,7 @@ pipeline {
             steps {
                 sh 'mvn deploy -DskipTests'
             }
-        }
+        }*/
           
         stage('Docker Build Stage') {
             steps {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-              stage('Push Image To Hub') {
+             /* stage('Push Image To Hub') {
             steps {
                 script { 
                     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerpwd')]) {
