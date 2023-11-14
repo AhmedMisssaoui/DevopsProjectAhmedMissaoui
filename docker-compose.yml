@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
   mysqldb:
@@ -23,7 +23,7 @@ services:
     ports:
       - "8088:8088"
     volumes:
-      - .m2:/root/.m2
+      - m2:/root/.m2
     stdin_open: true
     tty: true
     networks:
@@ -35,4 +35,4 @@ networks:
 
 volumes:
   db:
-  .m2:
+  m2:
