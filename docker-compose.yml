@@ -1,19 +1,38 @@
-version: '2'
+version: "3"
+
 services:
-  invoice:
-    build:
-      context: .
-    image: ahmedmissaoui/devops_indiv:latest
-    ports:
-      - "8088:8088"
-    depends_on:
-      - mysql
-  mysql:
-    image: mysql:8
-    environment:
-      MYSQL_ROOT_PASSWORD: ''
-      MYSQL_DATABASE: devops
-      MYSQL_USER: sa
-      MYSQL_PASSWORD: sa
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8.0
+    restart: unless-stopped
     ports:
       - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - my-network
+
+  backend-spring:
+    container_name: backend-spring
+    build: .
+    depends_on:
+      - mysqldb
+    restart: on-failure
+    ports:
+      - "8088:8088"
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  db:
+  .m2:
