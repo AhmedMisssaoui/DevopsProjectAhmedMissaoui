@@ -29,13 +29,13 @@ pipeline {
             }
         }
 
-         /*  stage('SonarQube Stage') {
+         / stage('SonarQube Stage') {
             steps {
              withSonarQubeEnv(installationName: 'sonarqube') {
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
             }
-        }*/
+        }
 
           stage("Building Stage") {
             steps {
@@ -43,11 +43,11 @@ pipeline {
             }
         }
           
-         /*stage("Nexus Stage") {
+         stage("Nexus Stage") {
             steps {
                 sh 'mvn deploy -DskipTests'
             }
-        }*/
+        }
           
         stage('Docker Build Stage') {
             steps {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-             /* stage('Push Image To Hub') {
+              stage('Push Image To Hub') {
             steps {
                 script { 
                     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerpwd')]) {
@@ -66,7 +66,7 @@ pipeline {
                     sh 'docker push ahmed026/ahmed_img '
                 }
             }
-        }*/
+        }
            stage('Docker Compose Stage') {
             steps {
                 script {
