@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-           stage('SonarQube Stage') {
+         /*  stage('SonarQube Stage') {
             steps {
              withSonarQubeEnv(installationName: 'sonarqube') {
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
@@ -49,7 +49,7 @@ pipeline {
             }
         }
           
-        /*stage('Docker Build Stage') {
+        stage('Docker Build Stage') {
             steps {
                 script { 
                     sh 'docker build -t ahmed026/ahmed_img .'
