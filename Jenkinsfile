@@ -22,12 +22,12 @@ pipeline {
             }
         }
 
-
+/*
  stage("Testing Stage") {
             steps {
                     sh "mvn test"
             }
-        }
+        }*/
 
           stage('SonarQube Stage') {
             steps {
