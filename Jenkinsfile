@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-/*
+
  stage("Testing Stage") {
             steps {
                     sh "mvn test"
@@ -32,10 +32,11 @@ pipeline {
           stage('SonarQube Stage') {
             steps {
              withSonarQubeEnv(installationName: 'sonarqube') {
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+      sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent -Djacoco.version=0.8.8 test jacoco:report'
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml'
     }
             }
-        }*/
+        }
 
           stage("Building Stage") {
             steps {
