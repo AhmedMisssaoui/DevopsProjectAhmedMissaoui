@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-              stage('Push Image To Hub') {
+             /* stage('Push Image To Hub') {
             steps {
                 script { 
                     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerpwd')]) {
@@ -66,7 +66,7 @@ pipeline {
                     sh 'docker push ahmed026/ahmed_img '
                 }
             }
-        }
+        }*/
            stage('Docker Compose Stage') {
             steps {
                 script {
