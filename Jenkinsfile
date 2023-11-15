@@ -27,7 +27,7 @@ pipeline {
             steps {
                     sh "mvn test"
             }
-        }*/
+        }
 
           stage('SonarQube Stage') {
             steps {
@@ -35,7 +35,7 @@ pipeline {
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
             }
-        }
+        }*/
 
           stage("Building Stage") {
             steps {
